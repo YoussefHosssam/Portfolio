@@ -110,8 +110,6 @@ export const skills: SkillCategory[] = [
     name: "Security & Certifications",
     items: [
       { name: "Network+", icon: "🛡️", logo: "/logos/network-plus.svg" },
-      { name: "OAuth 2.0", icon: "🔒", logo: "/logos/oauth.svg" },
-      { name: "JWT", icon: "🔐", logo: "/logos/jwt.svg" },
       { name: "eJPTv1", icon: "🎯", logo: "/logos/ejpt.svg" },
       { name: "HCIA-Security", icon: "🔐", logo: "/logos/hcia.svg" },
       { name: "CCNA", icon: "🌐", logo: "/logos/ccna.svg" }

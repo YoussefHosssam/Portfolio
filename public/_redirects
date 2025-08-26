@@ -1,0 +1,12 @@
+# Netlify form handling
+/api/*  /.netlify/functions/:splat  200
+
+# SPA routing
+/*    /index.html   200
+
+# Custom redirects
+/about    /#about    302
+/skills   /#skills   302
+/projects /#projects 302
+/experience /#experience 302
+/contact  /#contact  302
