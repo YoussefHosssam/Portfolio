@@ -1,11 +1,13 @@
 "use client";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ContactForm from '@/components/ContactForm';
-
-import { motion } from "framer-motion";import { Mail, Phone, MapPin, Clock, Github, Linkedin } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Mail, Phone, MapPin, Clock, Github, Linkedin } from 'lucide-react';
+import { useState } from "react";
 
 export default function Contact() {
+  const [status, setStatus] = useState("");
+
   const contactMethods = [
     {
       icon: Mail,
@@ -102,7 +104,58 @@ export default function Contact() {
                 Fill out the form below and I'll get back to you as soon as possible. 
                 All fields are required.
               </p>
-              <ContactForm />
+
+              {/* ✅ Netlify Form */}
+              <form
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                className="space-y-4 bg-dev-card border border-dev-border p-6 rounded-lg shadow"
+                onSubmit={() => setStatus("Thanks! I’ll get back to you soon.")}
+              >
+                <input type="hidden" name="form-name" value="contact" />
+
+                <div>
+                  <label className="block text-sm font-medium mb-1">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    className="w-full border border-dev-border rounded-lg p-2 bg-dev-bg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-1">Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    className="w-full border border-dev-border rounded-lg p-2 bg-dev-bg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium mb-1">Message</label>
+                  <textarea
+                    name="message"
+                    rows={5}
+                    required
+                    className="w-full border border-dev-border rounded-lg p-2 bg-dev-bg"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="px-6 py-2 bg-json-key text-dev-bg font-semibold rounded-lg hover:bg-json-key/80 transition"
+                >
+                  Send
+                </button>
+              </form>
+
+              {status && (
+                <p className="text-green-600 mt-4">{status}</p>
+              )}
             </motion.div>
 
             {/* Contact Information */}
@@ -264,4 +317,4 @@ export default function Contact() {
       <Footer />
     </div>
   );
-} 
+}
